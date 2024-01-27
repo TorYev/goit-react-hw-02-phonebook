@@ -16,7 +16,7 @@ class MyPhonebook extends Component {
   };
 
   addContacts = data => {
-    if (this.isDublicate(data)) {
+    if (this.isDuplicate(data)) {
       return alert(
         `Contact with ${data.name} and ${data.number} already in list`
       );
@@ -38,12 +38,10 @@ class MyPhonebook extends Component {
     this.setState({ filter: e.target.value });
   };
 
-  isDuplicate = ({ name, number }) => {
+  isDuplicate = ({ name }) => {
     const { contacts } = this.state;
     return contacts.some(
-      item =>
-        item.name.toLowerCase() === name.toLowerCase() &&
-        item.number.toLowerCase() === number.toLowerCase()
+      item => item.name.toLowerCase() === name.toLowerCase()
     );
   };
 
